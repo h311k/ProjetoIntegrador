@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Cadastro de Materiais</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="panel-heading" align="center">
+				<strong>Cadastro de Materiais</strong>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" th:object="${material}" th:action="@{/material/insere}" method="POST"  style="margim: 10px;">
+					<div class="form-group">
+						<fieldset>
+							<div class="form-group row">
+								<label>Nome</label>
+								<input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Nome do Material" maxlength="50"/>
+								<label>Descrição</label>
+								<input type="text" class="form-control input-sm" th:field="*{descricao}" autofocus="autofocus" placeholder="Descrição do Material" maxlength="100"/>
+								<label>Unidade de Medida</label>
+								<input type="text" class="form-control input-sm" th:field="*{unidadeMedida}" autofocus="autofocus" placeholder="Unidade de medida do Material" maxlength="10"/>
+							</div>					
+						</fieldset>
+					</div>
+					<div align="center">
+						<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+						<a th:href="@{/material/lista}" class="btn btn-sm btn-default">Cancelar</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
