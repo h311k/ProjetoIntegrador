@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "ordem_servico")
 public class OrdemServico implements Serializable {
@@ -33,9 +35,11 @@ private static final long serialVersionUID = 1L;
 	private String local;
 	
 	@Column(name = "ordem_servico_data_inicio")
+	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:MM:ss")
 	private Date dataInicio;
 	
 	@Column(name = "ordem_servico_data_fim")
+	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:MM:ss")
 	private Date dataFim;
 	
 	@Column(name = "ordem_servico_status", length = 1)

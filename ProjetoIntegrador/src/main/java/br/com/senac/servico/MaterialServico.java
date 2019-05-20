@@ -16,7 +16,7 @@ public class MaterialServico {
 	@Autowired
 	MaterialRepositorio materialRepositorio;
 	
-	public Material buscar(Integer materialId) {
+	public Material busca(Integer materialId) {
 		Optional<Material> material = materialRepositorio.findById(materialId);
 		return material.orElseThrow(() -> new ObjectNotFoundException("Material não encontrado! Id: "+materialId+", Tipo: "+Material.class.getName()));
 	}
@@ -26,7 +26,7 @@ public class MaterialServico {
 		return materialRepositorio.save(material);
 	}
 	
-	public Material edita(Material material) {
+	public Material altera(Material material) {
 		Optional<Material> retorno = materialRepositorio.findById(material.getMaterialId());
 		retorno.get().setNome(material.getNome());
 		retorno.get().setDescricao(material.getDescricao());
@@ -38,7 +38,7 @@ public class MaterialServico {
 		materialRepositorio.deleteById(materialId);
 	}
 	
-	public List<Material> listaTodos() {
+	public List<Material> lista() {
 		return materialRepositorio.findAll();
 	}
 }

@@ -1,6 +1,5 @@
 package br.com.senac.servico;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +16,7 @@ public class OrdemServicoServico {
 	@Autowired
 	private OrdemServicoRepositorio ordemServicoRepositorio;
 	
-	public OrdemServico buscar(Integer ordemServicoId) {
+	public OrdemServico busca(Integer ordemServicoId) {
 		Optional<OrdemServico> ordemServico = ordemServicoRepositorio.findById(ordemServicoId);
 		return ordemServico.orElseThrow(() -> new ObjectNotFoundException("Ordem de serviço não encontrada! Id: "+ordemServicoId+", Tipo: "+OrdemServico.class.getName()));
 	}
@@ -42,18 +41,19 @@ public class OrdemServicoServico {
 //		return ordensServico;
 //	}
 	
-	public List<OrdemServico> listarTodas() {
+	public List<OrdemServico> listaTodas() {
 		List<OrdemServico> ordensServico = ordemServicoRepositorio.findAll();
 		return ordensServico;
 	}
 	
 	public OrdemServico insere(OrdemServico ordemServico) {
 		ordemServico.setOrdemServicoId(null);
+		ordemServico.setStatus("ABERTA");
 		return ordemServicoRepositorio.save(ordemServico);
 	}
 	
 	public OrdemServico altera(OrdemServico ordemServico) {
-		OrdemServico resultado = this.buscar(ordemServico.getOrdemServicoId());
+		OrdemServico resultado = this.busca(ordemServico.getOrdemServicoId());
 		resultado.setColaborador(ordemServico.getColaorador());
 		resultado.setDescricao(ordemServico.getDescricao());
 		resultado.setLocal(ordemServico.getLocal());
@@ -62,8 +62,8 @@ public class OrdemServicoServico {
 		return ordemServicoRepositorio.save(resultado);
 	}
 	
-	public void excluir(OrdemServico ordemServico) {
-		ordemServicoRepositorio.deleteById(ordemServico.getOrdemServicoId());
+	public void exclui(Integer ordemServicoId) {
+		ordemServicoRepositorio.deleteById(ordemServicoId);
 	}
 	
 }
