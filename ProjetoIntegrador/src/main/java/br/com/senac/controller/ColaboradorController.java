@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.senac.dominio.Colaborador;
-import br.com.senac.servico.ColaboradorServico;
-import br.com.senac.servico.exception.ObjectNotFoundException;
+import br.com.senac.domain.Colaborador;
+import br.com.senac.service.ColaboradorServico;
+import br.com.senac.service.exception.ObjectNotFoundException;
 
 @Controller
 @RequestMapping("/colaborador")

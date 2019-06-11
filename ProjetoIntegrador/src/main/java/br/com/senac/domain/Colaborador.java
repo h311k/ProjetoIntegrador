@@ -1,4 +1,4 @@
-package br.com.senac.dominio;
+package br.com.senac.domain;
 
 import java.io.Serializable;
 
@@ -22,16 +22,19 @@ public class Colaborador implements Serializable {
 	@Column(name = "colaborador_id")
 	private Integer colaboradorId;
 	
-	@Column(name = "colaborador_nome", length = 45)
+	@Column(name = "colaborador_nome")
 	private String nome;
 	
-	@Column(name = "colaborador_sobrenome", length = 45)
+	@Column(name = "colaborador_sobrenome")
 	private String sobrenome;
 	
-	@Column(name = "colaborador_telefone", length = 45)
+	@Column(name = "colaborador_telefone")
 	private String telefone;
 	
-	@Column(name = "colaborador_senha", length = 45)
+	@Column(name = "colaborador_usuario")
+	private String usuario;
+	
+	@Column(name = "colaborador_senha")
 	@JsonIgnore
 	private String senha;
 	
@@ -68,6 +71,14 @@ public class Colaborador implements Serializable {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getSenha() {

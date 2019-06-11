@@ -1,4 +1,4 @@
-package br.com.senac.servico.exception;
+package br.com.senac.service.exception;
 
 public class ObjectNotFoundException extends RuntimeException {
 

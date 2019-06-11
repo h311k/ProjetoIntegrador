@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Cadastro de Colaboradores</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="panel-heading" align="center">
+				<strong>Cadastro de Colaboradores</strong>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" th:object="${colaborador}" th:action="@{/colaborador/insere}" method="POST"  style="margim: 10px;">
+					<div class="form-group">
+						<fieldset>
+							<div class="form-group row">
+								<label>Nome</label>
+								<input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Nome do Colaborador" maxlength="50"/>
+								<label>Sobrenome</label>
+								<input type="text" class="form-control input-sm" th:field="*{sobrenome}" autofocus="autofocus" placeholder="Sobrenome do Colaborador" maxlength="100"/>
+								<label>Telefone</label>
+								<input type="text" class="form-control input-sm" th:field="*{telefone}" autofocus="autofocus" placeholder="Telefone do Colaborador" maxlength="10"/>
+								<label>Senha</label>
+								<input type="password" class="form-control input-sm" th:field="*{senha}" autofocus="autofocus" placeholder="Uma senha forte" maxlength="10"/>
+							</div>					
+						</fieldset>
+					</div>
+					<div align="center">
+						<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+						<a th:href="@{/colaborador/lista}" class="btn btn-sm btn-default">Cancelar</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,4 +1,4 @@
-package br.com.senac.servico;
+package br.com.senac.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,16 +6,16 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.senac.dominio.Colaborador;
-import br.com.senac.repositorio.ColaboradorRepositorio;
-import br.com.senac.servico.exception.ObjectNotFoundException;
+import br.com.senac.domain.Colaborador;
+import br.com.senac.repository.ColaboradorRepository;
+import br.com.senac.service.exception.ObjectNotFoundException;
 import br.com.senac.util.Encriptador;
 
 @Service
 public class ColaboradorServico {
 
 	@Autowired
-	private ColaboradorRepositorio colaboradorRepositorio;
+	private ColaboradorRepository colaboradorRepositorio;
 	
 	private Encriptador encriptador = new Encriptador();
 	
