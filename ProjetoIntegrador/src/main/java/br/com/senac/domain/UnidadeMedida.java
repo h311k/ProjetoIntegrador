@@ -20,12 +20,28 @@ public class UnidadeMedida implements Serializable {
 	@Column(name = "unidade_medida_id")
 	private Integer unidadeMedidaId;
 	
-	@Column(name = "ordem_servico_descricao")
+	@Column(name = "unidade_medida_descricao")
 	private String descricao;
-	
-	@Column(name = "ordem_servico_local")
-	private String local;
-	
-	
 
+	public Integer getUnidadeMedidaId() {
+		return unidadeMedidaId;
+	}
+
+	public void setUnidadeMedidaId(Integer unidadeMedidaId) {
+		this.unidadeMedidaId = unidadeMedidaId;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+		
+	
 }

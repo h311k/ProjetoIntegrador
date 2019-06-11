@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.senac.domain.Colaborador;
-import br.com.senac.service.ColaboradorServico;
+import br.com.senac.service.ColaboradorService;
 import br.com.senac.service.exception.ObjectNotFoundException;
 
 @Controller
@@ -17,7 +17,7 @@ import br.com.senac.service.exception.ObjectNotFoundException;
 public class ColaboradorController {
 
 	@Autowired
-	private ColaboradorServico colaboradorServico;
+	private ColaboradorService colaboradorServico;
 	
 	@GetMapping("/lista")
 	public ModelAndView lista() {

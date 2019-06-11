@@ -27,7 +27,7 @@ private static final long serialVersionUID = 1L;
 	@Column(name = "material_tipo")
 	private String tipo;
 	
-	@OneToOne
+	@OneToOne //Está errado no banco. deveria ser ManyToOne. Conferir no banco.
 	private UnidadeMedida unidadeMedida;
 
 	public Integer getMaterialId() {

@@ -9,32 +9,32 @@ import org.springframework.stereotype.Service;
 import br.com.senac.domain.Colaborador;
 import br.com.senac.repository.ColaboradorRepository;
 import br.com.senac.service.exception.ObjectNotFoundException;
-import br.com.senac.util.Encriptador;
+import br.com.senac.util.Security;
 
 @Service
-public class ColaboradorServico {
+public class ColaboradorService {
 
 	@Autowired
-	private ColaboradorRepository colaboradorRepositorio;
+	private ColaboradorRepository colaboradorRepository;
 	
-	private Encriptador encriptador = new Encriptador();
+	private Security encriptador = new Security();
 	
 	public Colaborador busca(Integer colaboradorId) {
-		Optional<Colaborador> colaborador = colaboradorRepositorio.findById(colaboradorId);
+		Optional<Colaborador> colaborador = colaboradorRepository.findById(colaboradorId);
 		return colaborador.orElseThrow(() -> new ObjectNotFoundException("Colaborador não encontrado! Id: "+colaboradorId+", Tipo: "+Colaborador.class.getName()));
 	}
 	
 	public Colaborador buscaPorTelefone(String telefone) {
-		Colaborador colaborador = colaboradorRepositorio.findByTelefone(telefone);
+		Colaborador colaborador = colaboradorRepository.findByTelefone(telefone);
 		return colaborador;	
 	}
 	
 	public List<Colaborador> buscaPorNomeSobrenome(String nome, String sobrenome) {
 		List<Colaborador> colaboradores;
 		if(sobrenome!=null) {
-			colaboradores = colaboradorRepositorio.findByNome(nome);
+			colaboradores = colaboradorRepository.findByNome(nome);
 		} else {
-			colaboradores = colaboradorRepositorio.findByNomeSobrenome(nome, sobrenome);
+			colaboradores = colaboradorRepository.findByNomeSobrenome(nome, sobrenome);
 		}
 		return colaboradores;
 	}
@@ -43,11 +43,11 @@ public class ColaboradorServico {
 		colaborador.setColaboradorId(null);
 		colaborador.setSenha(encriptador.encriptaSenha(colaborador.getSenha()));
 		colaborador.setStatus("A");
-		return colaboradorRepositorio.save(colaborador);
+		return colaboradorRepository.save(colaborador);
 	}
 	
 	public Colaborador altera(Colaborador colaborador) {
-		Colaborador colaboradorEncontrado = colaboradorRepositorio.findByTelefone(colaborador.getTelefone());
+		Colaborador colaboradorEncontrado = colaboradorRepository.findByUsuario(colaborador.getUsuario());
 		colaboradorEncontrado.setNome(colaborador.getNome());
 		colaboradorEncontrado.setSobrenome(colaborador.getSobrenome());
 		colaboradorEncontrado.setStatus(colaborador.getStatus());
@@ -55,15 +55,15 @@ public class ColaboradorServico {
 		if(colaborador.getSenha()!=null) {
 			colaboradorEncontrado.setSenha(encriptador.encriptaSenha(colaborador.getSenha()));
 		}
-		return colaboradorRepositorio.save(colaboradorEncontrado);
+		return colaboradorRepository.save(colaboradorEncontrado);
 	}
 	
 	public void excluir(Integer id) {
-		colaboradorRepositorio.deleteById(id);
+		colaboradorRepository.deleteById(id);
 	}
 	
 	public List<Colaborador> listaTodos() {
-		return colaboradorRepositorio.findAll();
+		return colaboradorRepository.findAll();
 	}
 	
 	

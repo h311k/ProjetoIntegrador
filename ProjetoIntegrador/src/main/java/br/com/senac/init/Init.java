@@ -6,10 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Init implements ApplicationListener<ContextRefreshedEvent> {
-
+	
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		// TODO Auto-generated method stub
 		
 	}
 

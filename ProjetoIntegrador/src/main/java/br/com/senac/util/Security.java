@@ -2,11 +2,21 @@ package br.com.senac.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class Encriptador {
+import org.apache.tomcat.util.codec.binary.Base64;
 
+public class Security {
+
+	public String encode(String valor) {
+		return Base64.encodeBase64String(valor.getBytes());
+	}
+	
+	public String decode(String valor) {
+		byte[] decode = Base64.decodeBase64(valor.getBytes());
+		valor = new String(decode);
+		return valor;
+	}
+	
 	/**
 	 * Converte o valor inserido para chave MD5.
 	 * 
@@ -20,7 +30,7 @@ public class Encriptador {
 		try {
             md = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(Encriptador.class.getName()).log(Level.SEVERE, null, ex);
+            //logger.getLogger(UsuarioService.class.getName()).log(Level.WARN, null, ex);
         }
 		md.update(pass.getBytes());
         byte[] hashMd5 = md.digest();

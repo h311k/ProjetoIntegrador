@@ -21,7 +21,7 @@ private static final long serialVersionUID = 1L;
 	private Integer empresaClienteId;
 	
 	@Column(name = "empresa_cliente_nome")
-	private String EmpresaClienteNome;
+	private String nome;
 
 	public Integer getEmpresaClienteId() {
 		return empresaClienteId;
@@ -31,12 +31,12 @@ private static final long serialVersionUID = 1L;
 		this.empresaClienteId = empresaClienteId;
 	}
 
-	public String getEmpresaClienteNome() {
-		return EmpresaClienteNome;
+	public String getnome() {
+		return nome;
 	}
 
-	public void setEmpresaClienteNome(String empresaClienteNome) {
-		EmpresaClienteNome = empresaClienteNome;
+	public void setnome(String nome) {
+		this.nome = nome;
 	}
 
 	public static long getSerialversionuid() {
