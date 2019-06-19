@@ -18,7 +18,7 @@ public class Colaborador implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "colaborador_id")
 	private Integer colaboradorId;
 	

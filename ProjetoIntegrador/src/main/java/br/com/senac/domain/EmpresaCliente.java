@@ -16,7 +16,7 @@ public class EmpresaCliente implements Serializable {
 private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "empresa_cliente_id")
 	private Integer empresaClienteId;
 	
@@ -31,11 +31,11 @@ private static final long serialVersionUID = 1L;
 		this.empresaClienteId = empresaClienteId;
 	}
 
-	public String getnome() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setnome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 

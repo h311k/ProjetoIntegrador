@@ -16,6 +16,9 @@ public interface ColaboradorRepository extends JpaRepository<Colaborador, Intege
 	
 	Colaborador findByUsuario(String usuario);
 	
+	@Query("select c from Colaborador c where c.usuario=?1 and c.senha=?2")
+	Colaborador findByUsuarioSenha(String usuario, String senha);
+	
 	@Query("select c from Colaborador c where c.nome=?1 and c.sobrenome=?2")
 	List<Colaborador> findByNomeSobrenome(String nome, String sobrenome);
 

@@ -5,7 +5,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Colaboradores</title>
+<title>Empresas Cliente</title>
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet"></link>
@@ -16,7 +16,7 @@
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<strong>Colaboradores</strong>
+			<strong>Empresas Clientes</strong>
 		</div>
 
 		<div class="panel-body">
@@ -27,27 +27,19 @@
 						<tr>
 							<th>Identificação</th>
 							<th>Nome</th>
-							<th>Sobrenome</th>
-							<th>Telefone</th>
-							<th>Usuário</th>
-							<th>Status</th>
 							<th>Ações</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="colaboradores : ${colaboradores}">
-							<td th:text="${colaboradores.colaboradorId}"></td>
-							<td th:text="${colaboradores.nome}"></td>
-							<td th:text="${colaboradores.sobrenome}"></td>
-							<td th:text="${colaboradores.telefone}"></td>
-							<td th:text="${colaboradores.usuario}"></td>
-							<td th:text="${colaboradores.status}"></td>
+						<tr th:each="empresaCliente : ${empresasCliente}">
+							<td th:text="${empresaCliente.empresaClienteId}"></td>
+							<td th:text="${empresaCliente.nome}"></td>
 							<td>
 								<div class="btn-group pull-right">
 									<a class="btn btn-sm btn-primary"
-										th:href="@{/colaborador/altera/{colaboradorId}(colaboradorId=${colaboradores.colaboradorId})}">Alterar</a>
+										th:href="@{/empresacliente/altera/{empresaClienteId}(empresaClienteId=${empresaCliente.empresaClienteId})}">Alterar</a>
 									<a class="delete btn btn-sm btn-danger"
-										th:href="@{/colaborador/exclui/{colaboradorId}(colaboradorId=${colaboradores.colaboradorId})}">Excluir</a>
+										th:href="@{/empresascliente/exclui/{empresaClienteId}(empresaClienteId=${empresaCliente.empresaClienteId})}">Excluir</a>
 								</div>
 							</td>
 						</tr>
@@ -55,7 +47,7 @@
 				</table>
 			</div>
 			<div class="panel-footer">
-				<a class="btn btn-sm btn-success" th:href="@{/colaborador/adiciona}">Adicionar</a>
+				<a class="btn btn-sm btn-success" th:href="@{/empresacliente/adiciona}">Adicionar</a>
 			</div>
 		</div>
 	</div>

@@ -17,6 +17,8 @@ public class ColaboradorService {
 	@Autowired
 	private ColaboradorRepository colaboradorRepository;
 	
+	Security security = new Security();
+	
 	private Security encriptador = new Security();
 	
 	public Colaborador busca(Integer colaboradorId) {
@@ -27,6 +29,12 @@ public class ColaboradorService {
 	public Colaborador buscaPorTelefone(String telefone) {
 		Colaborador colaborador = colaboradorRepository.findByTelefone(telefone);
 		return colaborador;	
+	}
+	
+	public Colaborador findUsuarioSenha(Colaborador colaborador) {
+		colaborador.setSenha(security.encriptaSenha(colaborador.getSenha()));
+		colaborador = colaboradorRepository.findByUsuarioSenha(colaborador.getUsuario(), colaborador.getSenha());
+		return colaborador;
 	}
 	
 	public List<Colaborador> buscaPorNomeSobrenome(String nome, String sobrenome) {
@@ -40,7 +48,7 @@ public class ColaboradorService {
 	}
 	
 	public Colaborador insere(Colaborador colaborador) {
-		colaborador.setColaboradorId(null);
+		colaborador.setColaboradorId(1);
 		colaborador.setSenha(encriptador.encriptaSenha(colaborador.getSenha()));
 		colaborador.setStatus("A");
 		return colaboradorRepository.save(colaborador);

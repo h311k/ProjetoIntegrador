@@ -1,6 +1,5 @@
 package br.com.senac.repository;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,6 +10,7 @@ public interface EmpresaClienteRepository extends JpaRepository<EmpresaCliente, 
 	
 	Optional<EmpresaCliente> findById(Integer EmpresaClienteId);
 	
-	List<EmpresaCliente> findByNome(String nome);
+	EmpresaCliente findByNome(String nome);
+	
 	
 }
