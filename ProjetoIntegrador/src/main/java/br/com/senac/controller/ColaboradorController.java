@@ -94,19 +94,4 @@ public class ColaboradorController {
 		return "redirect:/colaborador/autentica";
 	}
 	
-	@PostMapping("/autenticausuario")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getUsuario(Colaborador colaborador) {
-
-		colaborador = colaboradorServico.findUsuarioSenha(colaborador);
-		ObjectMapper mapper = new ObjectMapper();
-		String jsonRetorno = "";
-		try {
-			jsonRetorno = mapper.writeValueAsString(colaborador);
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
-		return Response.status(200).entity(jsonRetorno).build();
-	}
 }
