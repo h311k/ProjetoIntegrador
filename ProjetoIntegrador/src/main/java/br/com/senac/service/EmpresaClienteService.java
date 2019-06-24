@@ -22,7 +22,7 @@ public class EmpresaClienteService {
 	}
 	
 	public EmpresaCliente insere(EmpresaCliente empresaCliente) {
-		empresaCliente.setEmpresaClienteId(1);
+		empresaCliente.setEmpresaClienteId(null);
 		return empresaClienteRepository.save(empresaCliente);
 	}
 

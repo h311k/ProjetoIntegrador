@@ -22,7 +22,7 @@ public class ProjetoTipoService {
 	}
 	
 	public ProjetoTipo insere(ProjetoTipo projetoTipo) {
-		projetoTipo.setProjetoTipoId(1);
+		projetoTipo.setProjetoTipoId(null);
 		return projetoTipoRepository.save(projetoTipo);
 	}
 

@@ -48,7 +48,7 @@ public class ColaboradorService {
 	}
 	
 	public Colaborador insere(Colaborador colaborador) {
-		colaborador.setColaboradorId(1);
+		colaborador.setColaboradorId(null);
 		colaborador.setSenha(encriptador.encriptaSenha(colaborador.getSenha()));
 		colaborador.setStatus("A");
 		return colaboradorRepository.save(colaborador);
