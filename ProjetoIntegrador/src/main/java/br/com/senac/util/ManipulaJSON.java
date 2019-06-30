@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 public class ManipulaJSON {
 
-	private  String streamToString(InputStream inputStream) {
+	private String streamToString(InputStream inputStream) {
+		@SuppressWarnings("resource")
 		String text = new Scanner(inputStream, "UTF-8").useDelimiter("\\Z").next();
 		return text;
 	}
