@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Cadastro de Projetos</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="panel-heading" align="center">
+				<strong>Cadastro de Projetos</strong>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" th:object="${projeto}" th:action="@{/projeto/insere}" method="POST"  style="margim: 10px;">
+					<div class="form-group">
+						<fieldset>
+							<div class="form-group row">
+								<label>Nome</label>
+								<input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Nome do Projeto" maxlength="100"/>
+								<label>Descrição</label>
+								<input type="text" class="form-control input-sm" th:field="*{descricao}" autofocus="autofocus" placeholder="Descrição do Projeto" maxlength="100"/>
+								<label>Local</label>
+								<input type="text" class="form-control input-sm" th:field="*{local}" autofocus="autofocus" placeholder="Local do Projeto" maxlength="100"/>
+								<label>Data de Início</label>
+								<input type="date" class="form-control input-sm" th:field="*{dataInicio}" autofocus="autofocus" placeholder="Data de início do Projeto" maxlength="50"/>
+								<label>Data de Conclusão</label>
+								<input type="date" class="form-control input-sm" th:field="*{dataFim}" autofocus="autofocus" placeholder="Data de conclusão do Projeto" maxlength="50"/>
+								<label>Status</label>
+								<input type="text" class="form-control input-sm" th:field="*{status}" autofocus="autofocus" placeholder="Status do Projeto" maxlength="100"/>
+								<label>Cliente</label>
+								<input type="text" class="form-control input-sm" th:field="*{empresaCliente}" autofocus="autofocus" placeholder="Cliente do Projeto" maxlength="100"/>
+							</div>					
+						</fieldset>
+					</div>
+					<div align="center">
+						<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+						<a th:href="@{/projeto/lista}" class="btn btn-sm btn-default">Cancelar</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

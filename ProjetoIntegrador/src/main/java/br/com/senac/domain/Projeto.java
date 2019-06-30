@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -46,7 +45,7 @@ public class Projeto implements Serializable {
 	@JoinColumn(name = "projeto_tipo_id")
 	private ProjetoTipo tipo;
 	
-	@OneToOne
+	@ManyToOne
 	private EmpresaCliente empresaCliente;
 
 	public Integer getProjetoId() {

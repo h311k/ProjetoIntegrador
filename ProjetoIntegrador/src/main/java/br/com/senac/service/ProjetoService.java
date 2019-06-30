@@ -29,6 +29,12 @@ public class ProjetoService {
 	public Projeto altera(Projeto projeto) {
 		Optional<Projeto> projetoEncontrado = repository.findById(projeto.getProjetoId());
 		projetoEncontrado.get().setNome(projeto.getNome());
+		projetoEncontrado.get().setDescricao(projeto.getDescricao());
+		projetoEncontrado.get().setDataInicio(projeto.getDataInicio());
+		projetoEncontrado.get().setDataFim(projeto.getDataFim());
+		projetoEncontrado.get().setLocal(projeto.getLocal());
+		projetoEncontrado.get().setStatus(projeto.getStatus());
+		projetoEncontrado.get().setTipo(projeto.getTipo());
 		return repository.save(projetoEncontrado.get());
 	}
 

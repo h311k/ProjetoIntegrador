@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.senac.domain.Colaborador;
 import br.com.senac.domain.EmpresaCliente;
 import br.com.senac.service.EmpresaClienteService;
 import br.com.senac.service.exception.ObjectNotFoundException;
